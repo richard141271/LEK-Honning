@@ -1,1 +1,419 @@
 
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <title>Om LEK-Honning™️ – Læring, Erfaring og Kuber</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mer om LEK-Honning™️ – et praktisk læringsopplegg der barn, ungdom og voksne følger ekte bikuber gjennom sesongen og lærer om natur, ansvar og økonomi.">
+  <style>
+    :root {
+      --yellow: #f4c542;
+      --yellow-dark: #d29e15;
+      --brown: #4a3424;
+      --bg: #fffaf0;
+      --text: #1f1f1f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 250, 240, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--brown);
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ffeaa7, var(--yellow-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .logo-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      opacity: 0.8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      opacity: 0.8;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--yellow-dark);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: white;
+      font-size: 0.8rem;
+    }
+
+    main {
+      padding: 2.5rem 1.25rem 3rem;
+    }
+
+    .page-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .breadcrumb {
+      font-size: 0.8rem;
+      opacity: 0.75;
+      margin-bottom: 1rem;
+    }
+
+    .breadcrumb a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .page-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .page-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      opacity: 0.7;
+      margin-bottom: 0.35rem;
+    }
+
+    .page-title {
+      font-size: 1.9rem;
+      line-height: 1.2;
+      color: var(--brown);
+      margin-bottom: 0.6rem;
+    }
+
+    .page-lead {
+      font-size: 0.98rem;
+      max-width: 40rem;
+      opacity: 0.92;
+    }
+
+    .columns-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 2.2rem;
+      align-items: flex-start;
+      margin-top: 2rem;
+    }
+
+    .section {
+      margin-bottom: 1.6rem;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+      color: var(--brown);
+    }
+
+    .section p {
+      font-size: 0.9rem;
+      opacity: 0.92;
+    }
+
+    .list-check {
+      list-style: none;
+      font-size: 0.9rem;
+      display: grid;
+      gap: 0.45rem;
+      margin-top: 0.6rem;
+    }
+
+    .list-check li::before {
+      content: "✓";
+      margin-right: 0.35rem;
+      color: var(--yellow-dark);
+      font-weight: 700;
+    }
+
+    .side-card {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 1.3rem 1.3rem 1.1rem;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.04);
+      font-size: 0.88rem;
+    }
+
+    .side-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      color: var(--brown);
+    }
+
+    .side-card small {
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+
+    .side-card ul {
+      margin-top: 0.7rem;
+      padding-left: 1.1rem;
+    }
+
+    .side-card ul li {
+      margin-bottom: 0.35rem;
+    }
+
+    .highlight {
+      background: rgba(244, 197, 66, 0.15);
+      border-radius: 0.6rem;
+      padding: 0.6rem 0.75rem;
+      margin-top: 0.8rem;
+      font-size: 0.86rem;
+    }
+
+    .back-link {
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+    }
+
+    .back-link a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding: 1.5rem 1.25rem 2rem;
+      font-size: 0.8rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 860px) {
+      .nav-links {
+        display: none;
+      }
+      .columns-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      main {
+        padding-top: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="/" class="logo">
+      <div class="logo-mark">🐝</div>
+      <div>
+        LEK-Honning™️
+        <div class="logo-sub">Læring • Erfaring • Kuber</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="/om/">Om opplegget</a>
+      <a href="/slik-fungerer-det/">Slik fungerer det</a>
+      <a href="/for-hvem/">For hvem</a>
+      <a href="/bli-med/">Bli med</a>
+    </nav>
+    <a href="/kontakt/" class="nav-cta">Kontakt / interesseskjema</a>
+  </div>
+</header>
+
+<main>
+  <div class="page-inner">
+    <div class="breadcrumb">
+      <a href="/">Forside</a> · Om opplegget
+    </div>
+
+    <div class="page-header">
+      <div class="page-kicker">Om LEK-Honning™️</div>
+      <h1 class="page-title">Et læringsopplegg bygget på ekte ansvar, ekte bier og ekte mestring.</h1>
+      <p class="page-lead">
+        LEK-Honning™️ kombinerer naturfag, økonomi, samarbeid og praktisk arbeid i ett og samme konsept.
+        Barn og unge får følge bikubene gjennom sesongen, og oppleve hele reisen fra blomst til ferdig
+        honningglass – innenfor trygge og tydelige rammer.
+      </p>
+    </div>
+
+    <div class="columns-2">
+      <div>
+        <section class="section">
+          <h2>Hvorfor vi laget LEK-Honning™️</h2>
+          <p>
+            Vi så et behov for et opplegg som gir mer enn teori. Mange barn og ungdommer lærer best når
+            de får <em>gjøre</em> noe konkret, ikke bare høre om det. LEK-Honning™️ er utviklet for å gi
+            nettopp dette: ekte arbeidsoppgaver, ekte ansvar og en konkret opplevelse av verdiskaping.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>Hva dere får som deltakere</h2>
+          <p>
+            LEK-Honning™️ er bygget som et nøkkelferdig opplegg. Dere trenger ikke være birøktere eller
+            eksperter på bier – det tar vi oss av. Dere får:
+          </p>
+          <ul class="list-check">
+            <li>Strukturert plan for hele sesongen (vår, sommer, høst)</li>
+            <li>Forslag til oppgaver og roller tilpasset alder og gruppe</li>
+            <li>Tilgang til maler, skjemaer og forslag til undervisningsopplegg</li>
+            <li>Mulighet for å profilere «deres egen honning» (klasse, lag, familie)</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>Kort fortalt – hva LEK-Honning™️ er</h2>
+          <p>
+            Et praktisk og fleksibelt læringsopplegg rundt bier og honning, som kan brukes av skoler,
+            lag/foreninger og familier. Noen bruker det som et prosjekt over få uker, andre som et
+            fast, årlig opplegg.
+          </p>
+
+          <div class="highlight">
+            LEK står for <strong>Læring, Erfaring og Kuber</strong>.  
+            Målet er at deltakerne skal sitte igjen med mer enn bare honning – de skal sitte igjen med
+            erfaring, mestring og stolthet.
+          </div>
+        </section>
+      </div>
+
+      <aside class="side-card">
+        <h3>Nøkkelpunkter om opplegget</h3>
+        <small>Trygt, strukturert og tilpassbart</small>
+
+        <ul>
+          <li>Utformes i samarbeid med lærer, leder eller foresatte</li>
+          <li>Kan tilpasses ulike alderstrinn og nivå</li>
+          <li>Kan brukes både i skole og fritid</li>
+          <li>Mulighet for inntektsgivende honningsalg</li>
+        </ul>
+
+        <div class="highlight">
+          Lurer du på om dette kan passe for din klasse, ditt lag eller din familie?  
+          <br><br>
+          <strong>Ta kontakt på <a href="mailto:lek@kias.no">lek@kias.no</a></strong>, så ser vi på en løsning som
+          passer deres situasjon.
+        </div>
+      </aside>
+    </div>
+
+    <div class="back-link">
+      <a href="/">← Tilbake til forsiden</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © <!-- legg inn årstall her --> LEK-Honning™️.  
+      Del av KIAS / LEK-systemet.
+    </div>
+    <div class="footer-links">
+      <a href="/om/">Om opplegget</a>
+      <a href="/slik-fungerer-det/">Slik fungerer det</a>
+      <a href="/for-hvem/">For hvem</a>
+      <a href="/kontakt/">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
